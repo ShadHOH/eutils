@@ -40,7 +40,7 @@ from .exceptions import EutilsRequestError, EutilsNCBIError
 _logger = logging.getLogger(__name__)
 
 url_base = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
-default_default_args = {"retmode": "xml", "usehistory": "y", "retmax": 9000}
+default_default_args = {"retmode": "xml", "usehistory": "y", "retmax": 999}
 default_tool = __package__
 default_email = "biocommons-dev@googlegroups.com"
 default_cache_path = os.path.join(os.path.expanduser("~"), ".cache", "eutils-cache.db")
