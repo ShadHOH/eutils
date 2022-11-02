@@ -67,10 +67,10 @@ class Client(object):
             return EInfoResult(self._qs.einfo()).dblist
         return EInfoResult(self._qs.einfo({"db": db, "version": "2.0"})).dbinfo
 
-    def esearch(self, db, term):
+    def esearch(self, db, term, retstart, retmax):
         """query the esearch endpoint
         """
-        esr = ESearchResult(self._qs.esearch({"db": db, "term": term}))
+        esr = ESearchResult(self._qs.esearch({"db": db, "term": term, "retstart": retstart, "retmax": retmax}))
         if esr.count > esr.retmax:
             logger.warning("NCBI found {esr.count} results, but we truncated the reply at {esr.retmax}"
                         " results; see https://github.com/biocommons/eutils/issues/124/".format(esr=esr))
